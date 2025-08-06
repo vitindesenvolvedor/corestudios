@@ -7,9 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <header class="bg-gray-800 p-4 shadow">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <img src="CoreStudios.png" alt="Core Studios Logo" class="h-10">
+  <!-- Header estilizado -->
+  <header class="bg-gray-950 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="CoreStudios.png" alt="Logo" class="h-10">
+        <span class="text-xl font-bold text-white">Core Studios</span>
+      </div>
       <nav class="space-x-6">
         <a href="index.html" class="hover:text-purple-400">Início</a>
         <a href="planos.html" class="hover:text-purple-400">Planos</a>
@@ -19,27 +23,31 @@
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-4xl font-bold text-purple-400">Escolha seu plano</h1>
-    <p class="mt-2 text-gray-300 mb-12">Clique em um botão abaixo para efetuar o pagamento via Mercado Pago</p>
+  <!-- Hero pagamento -->
+  <section class="text-center py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <h1 class="text-5xl font-extrabold text-white">Escolha seu plano ideal</h1>
+    <p class="mt-4 text-gray-400 max-w-xl mx-auto text-lg">Efetue seu pagamento com segurança e receba tudo direto no seu Discord!</p>
+  </section>
 
+  <!-- Planos -->
+  <main class="max-w-6xl mx-auto px-6 py-16 text-center">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Plano Básico -->
-      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
         <h2 class="text-2xl font-bold mb-2">🎉 Plano Básico</h2>
         <p class="text-gray-400 mb-4">Ideal para iniciantes • R$ 4,99</p>
         <a href="https://mpago.li/2vJreW2" target="_blank" class="block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 rounded-xl">Pagar com Pix</a>
       </div>
 
       <!-- Plano Pro -->
-      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
         <h2 class="text-2xl font-bold mb-2">🚀 Plano Pro</h2>
         <p class="text-gray-400 mb-4">Mais funções e suporte • R$ 14,99</p>
         <a href="https://mpago.la/15ezSpe" target="_blank" class="block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 rounded-xl">Pagar com Pix</a>
       </div>
 
       <!-- Bot Premium -->
-      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
         <h2 class="text-2xl font-bold mb-2">🤖 Bot Premium</h2>
         <p class="text-gray-400 mb-4">Completo + automações • R$ 24,99</p>
         <a href="https://mpago.la/1hWZrbZ" target="_blank" class="block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 rounded-xl">Pagar com Pix</a>
