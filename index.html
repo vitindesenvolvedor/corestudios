@@ -6,34 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Core Studios - Bots Profissionais</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="CoreStudios.png" type="image/png">
+  <style>
+    body::before {
+      content: "";
+      background: url('CoreStudios.png') no-repeat center center;
+      background-size: 500px;
+      opacity: 0.03;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    main, header, footer, section {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
-  <!-- Header melhorado -->
-  <header class="bg-gray-950 shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="CoreStudios.png" alt="Core Studios Logo" class="h-10">
-        <span class="text-xl font-bold text-white">Core Studios</span>
-      </div>
-      <nav class="space-x-6">
-        <a href="index.html" class="hover:text-red-400">Início</a>
-        <a href="planos.html" class="hover:text-red-400">Planos</a>
-        <a href="faq.html" class="hover:text-red-400">FAQ</a>
-        <a href="contato.html" class="hover:text-red-400">Contato</a>
-      </nav>
-    </div>
+  <!-- Header -->
+  <header class="p-6 flex justify-between items-center border-b border-gray-700">
+    <img src="CoreStudios.png" alt="Core Studios Logo" class="h-12">
+    <nav>
+      <ul class="flex space-x-6">
+        <li><a href="index.html" class="hover:text-red-400">Início</a></li>
+        <li><a href="planos.html" class="hover:text-red-400">Planos</a></li>
+        <li><a href="faq.html" class="hover:text-red-400">FAQ</a></li>
+        <li><a href="contato.html" class="hover:text-red-400">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero Section com destaque visual -->
-  <section class="text-center py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-    <h1 class="text-5xl font-extrabold text-white">Automatize seu servidor com estilo</h1>
-    <p class="mt-4 text-gray-400 max-w-xl mx-auto text-lg">Bots inteligentes, suporte rápido e visual profissional para seu Discord. Conheça agora os planos da Core Studios.</p>
-    <a href="planos.html" class="mt-8 inline-block bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-3 rounded-full text-lg transition">Ver Planos</a>
+  <!-- Boas-vindas -->
+  <section class="text-center py-20">
+    <h1 class="text-5xl font-bold">Bem-vindo à Core Studios</h1>
+    <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+      Seja muito bem-vindo! Aqui desenvolvemos bots automatizados para Discord com visual profissional, suporte dedicado e sistema inteligente. Confira abaixo nossas ofertas e planos personalizados.
+    </p>
   </section>
 
-  <!-- Resto do conteúdo permanece o mesmo -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 mt-16" id="planos">
+  <!-- Ofertas -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6" id="planos">
     <div class="bg-gray-800 p-6 rounded-xl shadow-md">
       <h2 class="text-xl font-semibold">Oferta limitada: 3 dias grátis</h2>
       <p class="text-gray-400 mt-2">Teste gratuitamente nosso bot e descubra como impulsionar suas vendas.</p>
@@ -53,7 +71,48 @@
     </div>
   </section>
 
-  <!-- Restante da página continua como estava -->
-  <!-- ... (seções: Requisitos, Sobre nós, Garantia, Contato, Rodapé) ... -->
+  <!-- Requisitos da oferta -->
+  <section class="bg-gray-800 mt-12 mx-6 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Requisitos da oferta</h2>
+    <ul class="list-disc list-inside text-gray-300">
+      <li>Só pode ser ativada em 1 servidor</li>
+      <li>Conta com no mínimo 30 dias de criação</li>
+      <li>Convidar pelo menos 2 amigos para o servidor</li>
+      <li>Servidor com no mínimo 100 membros</li>
+    </ul>
+    <button class="mt-4 bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-full font-semibold">Oferta exclusiva</button>
+  </section>
+
+  <!-- Sobre nós -->
+  <section id="sobre" class="text-center py-20 px-6">
+    <h2 class="text-3xl font-bold">Sobre a Core Studios</h2>
+    <p class="text-gray-400 mt-4 max-w-3xl mx-auto">
+      Somos uma equipe especializada na criação de bots personalizados para Discord. Atuamos com foco em qualidade, automação e suporte ao cliente. Nossos bots atendem desde servidores de Roleplay até sistemas de venda e ticket.
+    </p>
+  </section>
+
+  <!-- Garantia e Segurança -->
+  <section class="bg-gray-800 mx-6 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Segurança e confiança</h2>
+    <ul class="list-disc list-inside text-gray-300">
+      <li>Pagamento automatizado e 100% seguro via Mercado Pago</li>
+      <li>Receba o produto automaticamente no Discord após a compra</li>
+      <li>Cargo aplicado no Discord após verificação automática</li>
+      <li>Atendimento profissional via tickets</li>
+    </ul>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="text-center py-20 bg-gray-950">
+    <h2 class="text-3xl font-bold">Fale conosco</h2>
+    <p class="text-gray-400 mt-4">Entre no nosso servidor do Discord e abra um ticket com sua dúvida ou pedido!</p>
+    <a href="https://discord.gg/c43DGaBJKN" target="_blank" class="inline-block mt-6 bg-white text-black px-6 py-3 rounded-full font-semibold">Abrir Ticket</a>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="text-center py-6 text-gray-600 border-t border-gray-700">
+    © 2025 Core Studios. Todos os direitos reservados.
+  </footer>
 </body>
+
 </html>
