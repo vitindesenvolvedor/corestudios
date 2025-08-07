@@ -46,15 +46,14 @@
   </main>
 
   <script>
-    // Verifica se o código de acesso está salvo
     const acesso = localStorage.getItem('acessoStaff');
     if (acesso !== 'coreadmin123') {
-      window.location.href = 'equipe.html';
+      window.location.href = '/login-staff.html';
     }
 
     function logout() {
       localStorage.removeItem('acessoStaff');
-      window.location.href = 'equipe.html';
+      window.location.href = '/login-staff.html';
     }
   </script>
 </body>
