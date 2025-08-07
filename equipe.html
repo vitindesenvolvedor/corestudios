@@ -1,4 +1,4 @@
-<!-- login-staff.html --> 
+<!-- login-staff.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,8 +19,8 @@
     function verificarCodigo() {
       const codigo = document.getElementById("codigoInput").value;
       if (codigo === "coreadmin123") {
-        localStorage.setItem("staff_acesso", "liberado");
-        window.location.href = "/staffpainel.html"; // ✅ Redireciona para o painel
+        localStorage.setItem("acessoStaff", "coreadmin123");
+        window.location.href = "/staffpainel.html";
       } else {
         document.getElementById("erro").classList.remove("hidden");
       }
