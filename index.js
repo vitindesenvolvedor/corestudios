@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Substitua pelo seu webhook do Discord
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI';
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1402807086844215507/RS1gsyz-yjXQZb9VABbqlKt2CFf5XsIpENWlXZcELk2RbBfvzs3-Q-h0ung8z7WQ_t2h';
 
 // Rota de envio do formulário
 app.post('/contato', async (req, res) => {
