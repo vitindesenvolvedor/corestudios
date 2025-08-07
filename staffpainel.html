@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel da Staff - Core Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-gray-900 text-white min-h-screen">
@@ -19,41 +20,104 @@
     <h1 class="text-3xl font-bold mb-6">Bem-vindo ao Painel Administrativo</h1>
 
     <section class="grid md:grid-cols-2 gap-6">
+      <!-- Pagamentos Recentes -->
       <div class="bg-gray-800 rounded-xl p-6 shadow">
         <h2 class="text-xl font-semibold mb-2">📦 Pagamentos Recentes</h2>
-        <p class="text-gray-400">Visualize os pagamentos mais recentes recebidos pelo site.</p>
-        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Ver pagamentos</button>
+        <ul id="listaPagamentos" class="text-sm text-gray-300 space-y-2"></ul>
       </div>
 
+      <!-- Tickets Abertos -->
       <div class="bg-gray-800 rounded-xl p-6 shadow">
         <h2 class="text-xl font-semibold mb-2">🎫 Tickets Abertos</h2>
-        <p class="text-gray-400">Gerencie os atendimentos abertos no Discord.</p>
-        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Ver tickets</button>
+        <ul id="listaTickets" class="text-sm text-gray-300 space-y-2"></ul>
       </div>
 
-      <div class="bg-gray-800 rounded-xl p-6 shadow">
-        <h2 class="text-xl font-semibold mb-2">⚙️ Gerenciar Planos</h2>
-        <p class="text-gray-400">Adicione ou edite os planos disponíveis no site.</p>
-        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Editar planos</button>
+      <!-- Gráfico de Pagamentos -->
+      <div class="bg-gray-800 rounded-xl p-6 shadow col-span-2">
+        <h2 class="text-xl font-semibold mb-4">📈 Gráfico de Pagamentos por Dia</h2>
+        <canvas id="graficoPagamentos"></canvas>
       </div>
 
-      <div class="bg-gray-800 rounded-xl p-6 shadow">
-        <h2 class="text-xl font-semibold mb-2">📢 Avisos e Comunicações</h2>
-        <p class="text-gray-400">Envie avisos automáticos para a equipe via painel.</p>
-        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Enviar aviso</button>
+      <!-- Logs de Ações -->
+      <div class="bg-gray-800 rounded-xl p-6 shadow col-span-2">
+        <h2 class="text-xl font-semibold mb-2">📋 Logs de Ações da Staff</h2>
+        <ul id="logsStaff" class="text-sm text-gray-300 space-y-1"></ul>
       </div>
     </section>
   </main>
 
   <script>
-    const acesso = localStorage.getItem('acessoStaff');
-    if (acesso !== 'coreadmin123') {
-      window.location.href = '/login-staff.html';
+    // Simula os dados do painel
+    const pagamentos = [
+      { nome: "@lucas", plano: "Pro", valor: "R$ 9,99", data: "Hoje" },
+      { nome: "@ana", plano: "Básico", valor: "R$ 4,99", data: "Ontem" },
+      { nome: "@gustavo", plano: "Premium", valor: "R$ 19,90", data: "Há 3 dias" }
+    ];
+
+    const tickets = [
+      { usuario: "@victor", motivo: "Dúvida sobre plano" },
+      { usuario: "@fernanda", motivo: "Bot não responde" }
+    ];
+
+    const logs = [
+      "[09:22] @lucas editou plano Pro",
+      "[09:10] @ana visualizou relatório de tickets",
+      "[08:55] @gustavo enviou aviso para equipe"
+    ];
+
+    const dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+    const valores = [2, 4, 6, 5, 7, 3, 1];
+
+    // Exibe pagamentos
+    const listaPagamentos = document.getElementById("listaPagamentos");
+    pagamentos.forEach(p => {
+      listaPagamentos.innerHTML += `<li>💰 ${p.nome} comprou o plano <strong>${p.plano}</strong> por ${p.valor} - ${p.data}</li>`;
+    });
+
+    // Exibe tickets
+    const listaTickets = document.getElementById("listaTickets");
+    tickets.forEach(t => {
+      listaTickets.innerHTML += `<li>📨 ${t.usuario} - ${t.motivo}</li>`;
+    });
+
+    // Exibe logs
+    const logsStaff = document.getElementById("logsStaff");
+    logs.forEach(log => {
+      logsStaff.innerHTML += `<li>🕒 ${log}</li>`;
+    });
+
+    // Gráfico de pagamentos
+    new Chart(document.getElementById("graficoPagamentos"), {
+      type: "line",
+      data: {
+        labels: dias,
+        datasets: [{
+          label: "Pagamentos por dia",
+          data: valores,
+          borderColor: "#8b5cf6",
+          backgroundColor: "#8b5cf680",
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Verifica acesso
+    const acesso = localStorage.getItem('staff_acesso');
+    if (acesso !== 'liberado') {
+      window.location.href = 'login-staff.html';
     }
 
     function logout() {
-      localStorage.removeItem('acessoStaff');
-      window.location.href = '/login-staff.html';
+      localStorage.removeItem('staff_acesso');
+      window.location.href = 'login-staff.html';
     }
   </script>
 </body>
