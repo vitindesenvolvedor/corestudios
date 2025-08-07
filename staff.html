@@ -1,0 +1,28 @@
+<!-- staff.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel da Staff - Core Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <div class="max-w-5xl mx-auto py-12">
+    <h1 class="text-3xl font-bold mb-6">🎛️ Painel da Staff - Core Studios</h1>
+    <p>Bem-vindo! Aqui você pode gerenciar pagamentos, verificar usuários e acessar ferramentas da equipe.</p>
+
+    <!-- Exemplo de seção -->
+    <div class="mt-8 bg-gray-800 p-6 rounded-xl">
+      <h2 class="text-xl font-semibold mb-2">Últimos Pagamentos</h2>
+      <p class="text-gray-400">Em breve aqui você verá os logs de compra dos planos.</p>
+    </div>
+  </div>
+
+  <script>
+    // Proteção: se não tiver código válido no localStorage, redireciona
+    if (localStorage.getItem("staff_acesso") !== "liberado") {
+      window.location.href = "/login-staff.html";
+    }
+  </script>
+</body>
+</html>
