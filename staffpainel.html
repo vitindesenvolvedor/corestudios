@@ -1,21 +1,62 @@
-<section class="max-w-5xl mx-auto mt-16 px-6">
-  <h1 class="text-4xl font-bold text-center mb-10">👥 Equipe Core Studios</h1>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="bg-gray-800 p-6 rounded-xl text-center shadow-md">
-      <img src="https://cdn.discordapp.com/avatars/123456789012345678/a_avatarhash.png" class="mx-auto w-20 h-20 rounded-full mb-4">
-      <h2 class="text-xl font-semibold">Victor Gabriel</h2>
-      <p class="text-purple-400">Fundador / Desenvolvedor</p>
-      <p class="text-sm text-gray-400 mt-1">ID: 123456789012345678</p>
-    </div>
-    <!-- Adicione mais membros aqui -->
-  </div>
+<!-- staffpainel.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
 
-  <div class="mt-12 text-center">
-    <h3 class="text-xl font-semibold mb-4">⚙️ Ações Rápidas</h3>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="/dashboard" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-semibold">Ver Painel</a>
-      <a href="/tickets" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold">Tickets</a>
-      <a href="/pagamentos" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold">Pagamentos</a>
-    </div>
-  </div>
-</section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel da Staff - Core Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen">
+  <header class="bg-gray-950 shadow p-4 flex justify-between items-center">
+    <div class="text-xl font-bold">Painel da Staff</div>
+    <button onclick="logout()" class="bg-red-600 px-4 py-2 rounded hover:bg-red-700">Sair</button>
+  </header>
+
+  <main class="max-w-6xl mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold mb-6">Bem-vindo ao Painel Administrativo</h1>
+
+    <section class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-800 rounded-xl p-6 shadow">
+        <h2 class="text-xl font-semibold mb-2">📦 Pagamentos Recentes</h2>
+        <p class="text-gray-400">Visualize os pagamentos mais recentes recebidos pelo site.</p>
+        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Ver pagamentos</button>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl p-6 shadow">
+        <h2 class="text-xl font-semibold mb-2">🎫 Tickets Abertos</h2>
+        <p class="text-gray-400">Gerencie os atendimentos abertos no Discord.</p>
+        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Ver tickets</button>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl p-6 shadow">
+        <h2 class="text-xl font-semibold mb-2">⚙️ Gerenciar Planos</h2>
+        <p class="text-gray-400">Adicione ou edite os planos disponíveis no site.</p>
+        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Editar planos</button>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl p-6 shadow">
+        <h2 class="text-xl font-semibold mb-2">📢 Avisos e Comunicações</h2>
+        <p class="text-gray-400">Envie avisos automáticos para a equipe via painel.</p>
+        <button class="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Enviar aviso</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Verifica se o código de acesso está salvo
+    const acesso = localStorage.getItem('acessoStaff');
+    if (acesso !== 'coreadmin123') {
+      window.location.href = 'equipe.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('acessoStaff');
+      window.location.href = 'equipe.html';
+    }
+  </script>
+</body>
+
+</html>
