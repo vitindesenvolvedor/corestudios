@@ -19,9 +19,9 @@
     function verificarCodigo() {
       const codigo = document.getElementById("codigoInput").value;
       if (codigo === "coreadmin123") {
-        localStorage.setItem("acessoStaff", "coreadmin123");
-        window.location.href = "/staffpainel.html";
-      } else {
+  localStorage.setItem("staff_acesso", "liberado");
+  window.location.href = "staffpainel.html"; // <--- não pode ser staff.html
+} else {
         document.getElementById("erro").classList.remove("hidden");
       }
     }
